@@ -11,8 +11,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 lookVector;
 
-    [SerializeField] private float speed;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movementVector * speed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movementVector * Player.Instance.speed * Time.fixedDeltaTime);
         rb.MoveRotation(Quaternion.LookRotation(lookVector, Vector3.back));
     }
 
